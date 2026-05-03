@@ -1,31 +1,20 @@
 <!DOCTYPE html>
-<html lang="pt-br"> <!-- A tag <html> é a raiz do documento HTML e o atributo lang="pt-br" indica que o idioma principal da página é o português do Brasil. -->
+<html lang="pt-br">
 <head>
-    
-      <!-- Fontes do Google -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Generation Brasil">
+    <meta name="description" content="Portfólio da Generation Brasil, desenvolvedora Full Stack.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Fonte do Google - Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
-    <meta charset="UTF-8">
-	
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-    <meta name="author" content="Generation Brasil">
-    <meta 
-        name="description"
-        content="Portfólio da Generation Brasil, 
-                desenvolvedora Full Stack especializado em criar experiências 
-                digitais incríveis. Conheça meus projetos e entre em contato."
-    >
-    <meta name="robots" content="index, follow">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- SWIPER CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"> 
-
-   <!-- Link para a Folha de Estilo da Página - CSS -->
+    <!-- Link para a Folha de Estilo local -->
     <link rel="stylesheet" href="./assets/css/style.css">
    
     <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
@@ -33,207 +22,105 @@
     <title>Portfólio - Lorena Godoi</title>
 </head>
 
-
-<!-- O conteúdo da página é dividido em três seções principais: o cabeçalho (header), o conteúdo principal (main) e o rodapé (footer). Cada uma dessas seções pode conter elementos específicos, como títulos, parágrafos, imagens, links, etc., dependendo do design e do propósito da página. -->
-
-    <body> <!-- Aqui, dentro da body, inserimos o conteúdo da página -->
-
-    <!-- Cabeçalho da Página - Header -->
-  <header>   
-        
+<body>
+    <header>   
         <div class="menu-content">
-
-        <!-- TITULO -->
-        <a href="index.html" id="titulo">Portfólio</a> <!-- O elemento <a> é usado para criar um link. O atributo href="index.html" indica que, ao clicar no título "Portfólio", o usuário será redirecionado para a página index.html. O id="titulo" é um identificador único que pode ser usado para estilizar ou manipular esse elemento com CSS ou JavaScript. -->
-
-        <!-- MENU -->
-        <nav>
-            <ul class="menu-list">
-                <li><a href="#hero">Início</a></li>
-                <li><a href="#about">Sobre</a></li>
-                <li><a href="#projects">Projetos</a></li>
-                <li><a href="#contact">Contato</a></li>
-            </ul>
-        </nav>
-    </div>
+            <a href="index.html" id="titulo">Portfólio</a>
+            <nav>
+                <ul class="menu-list">
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#projects">Projetos</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-
-    <!-- Conteúdo Principal - Main -->
     <main>
-
-    <!-- Sessão de boas vindas -->
-    <section id="hero" class="section-container hero-container">
-
-        <article class="hero-content">
-
-            <span>👋 Olá, eu sou a Lou!</span>
-            <h1>Desenvolvedora Full Stack</h1>
-            <p>Transformo ideias em código e crio experiências digitais incríveis.</p>
-
-            <div class="buttons-container">
-                <a href="#contact" class="botao">Entre em Contato</a>
-                <a href="#about" class="botao-outline">Saiba Mais...</a>
-            </div>
-        </article>
-
-    <!-- Imagem de destaque -->
-        <figure class="hero-image">
-            <img src="./assets/img/foto_dev_woman.svg" 
-                 alt="Foto do autor." 
-                 class="float-animation"
-                 width="350">
-        </figure>
-    </section>
-
-
-    <!-- Sessão sobre mim/o autor -->
-<section id="about" class="section-container about-container">
-
-    <figure class="about-image">
-        <img src="./assets/img/avatar_dev_woman.svg" alt="Foto do perfil" width="350">
-    </figure>
-
-    <article class="about-content">
-        <h2>Sobre mim</h2>
-        
-        <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-            Dicta assumenda, quasi sit reiciendis nihil id enim facilis 
-            iste exercitationem nostrum minus ipsa neque officia dolorum 
-            ea optio est quis magni.
-        </p>
-        
-        <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-            Dicta assumenda, quasi sit reiciendis nihil id enim facilis 
-            iste exercitationem nostrum minus ipsa neque officia dolorum 
-            ea optio est quis magni.
-        </p>
-
-        <div class="about-buttons-data">
-            <div class="buttons-container">
-                <a href="#" target="_blank" class="botao">GitHub</a>
-                <a href="#" target="_blank" class="botao-outline">Currículo</a>
-            </div>
-
-            <div class="data-container">
-                <div class="data-item">
-                    <span class="data-number">100</span>
-                    <span class="data-label">Seguidores</span>
+        <!-- Seção Hero -->
+        <section id="hero" class="section-container hero-container">
+            <article class="hero-content">
+                <span>👋 Olá, eu sou a Lou!</span>
+                <h1>Desenvolvedora Full Stack</h1>
+                <p>Transformo ideias em código e crio experiências digitais incríveis.</p>
+                <div class="buttons-container">
+                    <a href="#contact" class="botao">Entre em Contato</a>
+                    <a href="#about" class="botao-outline">Saiba Mais...</a>
                 </div>
-                
-                <div class="data-item">
-                    <span class="data-number">10</span>
-                    <span class="data-label">Repositórios</span>
+            </article>
+            <figure class="hero-image">
+                <img src="./assets/img/foto_dev_woman.svg" alt="Foto do autor" class="float-animation" width="350">
+            </figure>
+        </section>
+
+        <!-- Seção Sobre (O conteúdo será injetado pelo JS) -->
+        <section id="about" class="section-container">
+            <!-- JS vai carregar o conteúdo aqui -->
+        </section>
+
+        <!-- Seção Projetos -->
+        <section id="projects" class="section-container projects-container">
+            <h2>Meus Projetos</h2>
+            <div class="swiper projects-swiper">
+                <div class="swiper-wrapper">
+                   <!-- JS vai carregar os slides aqui -->
                 </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div> 
+                <div class="swiper-pagination"></div>
             </div>
-        </div>
-    </article>
-</section>
+        </section>
 
+        <!-- Seção Contato -->
+        <section id="contact" class="section-container contact-container">
+            <article class="contact-info">
+                <h2>Entre em Contato</h2>
+                <p>Sinta-se à vontade para entrar em contato comigo!</p>
+                <div class="social-container">
+                    <a href="#" target="_blank" class="social-icon" aria-label="LinkedIn">
+                        <img src="./assets/icons/social/linkedin.svg" alt="LinkedIn">
+                    </a>
+                    <a href="#" target="_blank" class="social-icon" aria-label="GitHub">
+                        <img src="./assets/icons/social/github.svg" alt="GitHub">
+                    </a>
+                </div>
+            </article>
 
-    <!-- Sessão de projetos do autor -->
-    <section id="projects" class="section-container projects-container">
-    <h2>Meus Projetos</h2>
+            <!-- Formulário de Contato -->
+          <form id="formulario" action="https://formsubmit.co/lorenagodoi.almeida@gmail.com" method="POST" novalidate>
+   
+            <input type="hidden" name="_next" value="http://localhost:5500/success.html">
+    <input type="hidden" name="_captcha" value="false">
 
-    <!-- Swiper container para exibir os projetos em um carrossel -->
-    <div class="swiper projects-swiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
+    <label for="nome">Nome</label>
+    <input id="nome" name="nome" type="text" placeholder="Digite seu nome completo">
+    <span id="erro-nome" class="erro"></span> <!-- ADICIONADO -->
 
-                <article class="project-card">
-                    <figure class="project-image">
-                        <img src="./assets/icons/languages/github.svg" 
-                             alt="Ícone GitHub"
-                             width="250">
-                    </figure>
+    <label for="email">E-mail</label>
+    <input id="email" name="email" type="email" placeholder="Digite seu e-mail">
+    <span id="erro-email" class="erro"></span> <!-- ADICIONADO -->
 
-                    <div class="project-content">
-                        <h3>Projeto Github</h3>
-                        <p>Projeto Desenvolvido no GitHub</p>
+    <label for="assunto">Assunto</label>
+    <input id="assunto" name="assunto" type="text" placeholder="O assunto da sua mensagem">
+    <span id="erro-assunto" class="erro"></span> <!-- ADICIONADO -->
 
-                        <div class="project-tags">
-                            <span class="tag">GitHub</span>
-                        </div>
+    <label for="mensagem">Mensagem</label>
+    <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..."></textarea>
+    <span id="erro-mensagem" class="erro"></span> <!-- ADICIONADO -->
 
-                        <div class="project-buttons">
-                            <a href="#" target="_blank" class="botao botao-sm">
-                                GitHub
-                            </a>
-                            <a href="#" target="_blank" class="botao-outline botao-sm">
-                                Deploy
-                            </a>
-                        </div>
-                    </div>
+    <button class="botao" type="submit">Enviar Mensagem</button>
+</form>
+        </section>
+    </main>
 
-                </article>
-            </div>
-        </div>
-
-        <!-- Botões de navegação do Swiper -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div> 
-
-        <!-- Paginação do Swiper -->
-        <div class="swiper-pagination"></div>
-    </div>
-</section>
-
-
-
-    <!-- Sessão de contato e redes sociais -->
-    <section id="contact" class="section-container contact-container">
-
-    <!--Redes sociais-->
-    <article class="contact-info">
-        <h2>Entre em Contato</h2>
-        <p>Sinta-se à vontade para entrar em contato comigo!</p>
-
-        <div class="social-container">
-            <a href="#" target="_blank" class="social-icon" aria-label="LinkedIn">
-                <img src="./assets/icons/social/linkedin.svg" alt="Link para o Linkedin">
-            </a>
-            <a href="#" target="_blank" class="social-icon" aria-label="GitHub">
-                <img src="./assets/icons/social/github.svg" alt="Link para o GitHub">
-            </a>
-            <a href="#" target="_blank" class="social-icon" aria-label="Instagram">
-                <img src="./assets/icons/social/instagram.svg" alt="Link para o Instagram">
-            </a>
-        </div>
-    </article>
-
-    <!-- Formulário de contato -->
-    <form id="formulario">
-
-        <label for="nome">Nome</label>
-        <input id="nome" name="nome" type="text" placeholder="Digite o seu nome completo">
-        <span id="erro-nome"></span>
-
-        <label for="email">E-mail</label>
-        <input id="email" name="email" type="text" placeholder="Digite o seu e-mail">
-        <span id="erro-email"></span>
-
-        <label for="assunto">Assunto</label>
-        <input id="assunto" name="assunto" type="text" placeholder="Digite o assunto da mensagem">
-        <span id="erro-assunto"></span>
-
-        <label for="mensagem">Mensagem</label>
-        <textarea id="mensagem" name="mensagem" placeholder="Escreva a sua mensagem aqui..."></textarea>
-        <span id="erro-mensagem"></span>
-
-        <button class="botao" type="submit">Enviar Mensagem</button>
-    </form>
-</section>
-
-
-</main>
-
-    <!-- Rodapé da Página - Footer -->
     <footer>
-    Desenvolvido por Lorena Godoi | 2026
+        Desenvolvido por Lorena Godoi | 2026
     </footer>
 
+    <!-- SWIPER JS (Deve vir antes do seu script) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Seu Script Local -->
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
-
