@@ -229,12 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     spanElement.innerText = currentLang === 'pt' ? 'Enviando...' : 'Sending...';
                 }
 
-                const formData = new FormData(formulario);
-                navigator.sendBeacon(formulario.action, formData); 
-                
-                setTimeout(() => {
-                    window.location.href = "https://lou-godoi.github.io/Portfolio/success.html";
-                }, 800);
+                formulario.submit();
             }
         });
     }
