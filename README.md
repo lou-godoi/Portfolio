@@ -1,22 +1,24 @@
-# Projeto Portfólio Pessoal
+# 🏰 Castelo Digital de Lou
 
 ---
 
 <div align="center"> 
-	<img src="https://img.shields.io/badge/HTML-5-orange?style=for-the-badge&logo=html5" alt="HTML Badge" /> 
-	<img src="https://img.shields.io/badge/CSS-3-purple?style=for-the-badge&logo=css&logoColor=purple" alt="CSS Badge" /> 
-	<img src="https://img.shields.io/badge/JavaScript-ES6+-yellow?style=for-the-badge&logo=javascript&logoColor=yellow" alt="JavaScript Badge" /> 
+   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" /> 
+   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" /> 
+   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" /> 
 </div>
 
 <br />
 
-O **Projeto Portfólio Pessoal** é um **site profissional moderno**, desenvolvido com **HTML, CSS e JavaScript**, com o objetivo de apresentar informações sobre a pessoa desenvolvedora, seus projetos e formas de contato de maneira clara, interativa e responsiva.
+Este **portfólio** é um **manuscrito digital vivo**, forjado com as artes do **HTML**, **CSS** e **JavaScript**. Ele atua como um arauto, proclamando minhas proezas e missões (projetos) através das terras da web.
 
-O projeto consome dados dinâmicos da **API do GitHub**, permitindo que informações como perfil e repositórios sejam carregadas automaticamente, mantendo o conteúdo sempre atualizado.
+O projeto envia mensageiros à API do GitHub para buscar pergaminhos (repositórios) em tempo real, permitindo que informações como perfil e repositórios sejam carregadas automaticamente, mantendo o conteúdo sempre atualizado.
+
+(⚠️ O arquivo mais recente está na branch "personalização")
 
 ------
 
-## Funcionalidades
+## 📜 As Crônicas (Funcionalidades)
 
 - Estrutura de páginas desenvolvida com **HTML semântico**
 - Estilização moderna com **CSS**, utilizando:
@@ -34,7 +36,7 @@ O projeto consome dados dinâmicos da **API do GitHub**, permitindo que informa�
 
 ------
 
-## Estrutura do Projeto
+## 🗺️ Mapa do Reino
 
 ```
 portfolio/
@@ -45,6 +47,7 @@ portfolio/
 ├── assets/
 │   ├── css/
 │   │   └── styles.css    # Estilos e responsividade
+│   ├── docs/
 │   ├── js/
 │   │   └── scripts.js   # Integração com GitHub, carrossel e validações
 │   ├── img/             # Imagens e ilustrações
@@ -55,7 +58,7 @@ portfolio/
 
 ------
 
-## Tecnologias Utilizadas
+## 🛠️ Ferramentas da Guilda (Tecnologias)
 
 - **HTML5**: Estruturação semântica do conteúdo
 - **CSS3**: Estilização, layout responsivo e animações
@@ -66,9 +69,9 @@ portfolio/
 
 ------
 
-## Executando Localmente
+## 🐎 Convocando a Montaria (Instalação)
 
-Para executar o projeto em ambiente local, siga os passos abaixo.
+Se desejais replicar esta obra em vossas próprias terras, segui as ordens abaixo:
 
 ### Pré-requisitos
 
@@ -103,7 +106,7 @@ O site será aberto no navegador e todas as alterações poderão ser visualizad
 
 ## Deploy
 
-Este site está disponível publicamente através do **GitHub Pages**. Você pode acessar a versão online pelo link abaixo:
+Está disponível publicamente através do **GitHub Pages**. Você pode acessar o feudo online pelo link abaixo:
 
 🔗 https://lou-godoi.github.io/portfolio
 
@@ -111,4 +114,10 @@ Este site está disponível publicamente através do **GitHub Pages**. Você pod
 
 ## Contribuições
 
-Contribuições são bem-vindas. Caso tenha sugestões de melhorias, correções ou novas funcionalidades, sinta-se à vontade para abrir uma **issue** ou enviar um **pull request**.
+Como é costume nas grandes guildas, sugestões de melhoria são bem-vistas. Caso tenha sugestões de melhorias, correções ou novas funcionalidades, sinta-se à vontade para abrir uma **issue** ou enviar um **pull request**.
+
+------
+
+## Obrigado! ⚜️
+
+Fica aqui registrado o meu mais sincero agradecimento a Vossa Mercê pela visita a estes domínios. Que os ventos da fortuna guiem seus projetos e que nossas estradas se cruzem novamente em futuras alianças. ⚔️🏰
