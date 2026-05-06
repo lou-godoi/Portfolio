@@ -1,221 +1,248 @@
-// Seletores
-const about = document.querySelector('#about');
-const swiperWrapper = document.querySelector('.swiper-wrapper');
-
-// Seletor do Formulário
-const formulario = document.querySelector('#formulario');
-
-// Regex de validação do e-mail
-const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-// Função para buscar os dados do Perfil do GitHub
-async function getAboutGithub() {
-    try {
-        const resposta = await fetch('https://api.github.com/users/lou-godoi');
-        if (!resposta.ok) throw new Error('Falha ao buscar perfil');
-        const perfil = await resposta.json();
-
-        if (about) {
-            about.innerHTML = `
-                <div class="about-container"> 
-                    <figure class="about-image">
-                        <img src="${perfil.avatar_url}" alt="Foto do perfil - ${perfil.name}">
-                    </figure>
-
-                    <article class="about-content">
-                        <h2>Sobre mim</h2>
-                        <p>
-                            Desenvolvedora em transição de carreira, participando do bootcamp da Generation Brasil. 
-                            Focada em tecnologias backend como Node.js, TypeScript e NestJS.
-                        </p>
-
-                        <div class="about-buttons-data">
-                            <div class="buttons-container">
-                                <a href="${perfil.html_url}" target="_blank" class="botao">Ver GitHub</a>
-                                <a href="#" target="_blank" class="botao-outline">Currículo</a>
-                            </div>
-
-                            <div class="data-container">
-                                <div class="data-item">
-                                    <span class="data-number">${perfil.followers}</span>
-                                    <span class="data-label">Seguidores</span>
-                                </div>
-                                <div class="data-item">
-                                    <span class="data-number">${perfil.public_repos}</span>
-                                    <span class="data-label">Repositórios</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            `;
-        }
-    } catch (error) {
-        console.error('Erro ao buscar dados do GitHub:', error);
-    }
-}
-
-// Função para buscar os repositórios
-async function getProjectsGithub() {
-    try {
-        const resposta = await fetch('https://api.github.com/users/lou-godoi/repos?sort=updated&per_page=6');
-        if (!resposta.ok) throw new Error(`Erro na API: ${resposta.status}`);
-        
-        const repositorios = await resposta.json();
-        let htmlSlides = '';
-
-        const linguagens = {
-            'JavaScript': 'javascript',
-            'TypeScript': 'typescript',
-            'Python': 'python',
-            'Java': 'java',
-            'HTML': 'html',
-            'CSS': 'css',
-            'GitHub': 'github',
-        };
-
-        repositorios.forEach(repositorio => {
-            const linguagem = repositorio.language || 'GitHub';
-            const logo = linguagens[linguagem] ?? 'github';
-            const urlLogo = `./assets/icons/languages/${logo}.svg`;
-
-            const nomeFormatado = repositorio.name.replace(/[-_]/g, ' ').toUpperCase();
+document.addEventListener('DOMContentLoaded', () => {
     
-            const truncar = (texto, limite) => texto && texto.length > limite
-                ? texto.substring(0, limite) + '...'
-                : (texto || 'Projeto desenvolvido no GitHub');
+    // --- CONFIGURAÇÃO DO GITHUB ---
+    const GITHUB_USER = 'lou-godoi';
 
-            const descricao = truncar(repositorio.description, 80);
-
-            const tags = repositorio.topics?.length > 0
-                ? repositorio.topics.slice(0, 3).map(topic => `<span class="tag">${topic}</span>`).join('')
-                : `<span class="tag">${linguagem}</span>`;
-
-            const botaoDeploy = repositorio.homepage
-                ? `<a href="${repositorio.homepage}" target="_blank" class="botao-outline botao-sm">Deploy</a>`
-                : '';
-
-            htmlSlides += `
-                <div class="swiper-slide">
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img src="${urlLogo}" alt="${linguagem}" onerror="this.src='./assets/icons/languages/github.svg';">
-                        </div>
-                        <div class="project-content">
-                            <h3>${nomeFormatado}</h3>
-                            <p>${descricao}</p>
-                            <div class="project-tags">${tags}</div>
-                            <div class="project-buttons">
-                                <a href="${repositorio.html_url}" target="_blank" class="botao botao-sm">GitHub</a>
-                                ${botaoDeploy}
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            `;
+    // --- FUNÇÃO DE TRADUÇÃO REUTILIZÁVEL ---
+    function aplicarIdioma(idioma) {
+        // 1. Traduz Textos Normais (usa innerHTML para preservar tags como <br>)
+        const textElements = document.querySelectorAll('[data-pt]');
+        textElements.forEach(el => {
+            if (el.classList.contains('filter-btn')) {
+            el.innerHTML = idioma === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-pt');
+            el.style.opacity = 1; // Garante que ele fique visível
+            return;
+        }
+            el.style.opacity = 0;
+            setTimeout(() => {
+                const text = idioma === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-pt');
+                el.innerHTML = text;
+                el.style.opacity = 1;
+            }, 300);
         });
 
-        if (swiperWrapper) {
-            swiperWrapper.innerHTML = htmlSlides;
-            iniciarSwiper();
-        }
+        // 2. Traduz os Placeholders
+        const inputElements = document.querySelectorAll('[data-pt-placeholder]');
+        inputElements.forEach(input => {
+            const placeholderText = idioma === 'en' 
+                ? input.getAttribute('data-en-placeholder') 
+                : input.getAttribute('data-pt-placeholder');
+            input.setAttribute('placeholder', placeholderText);
+        });
 
-    } catch (error) {
-        console.error('Erro ao buscar repositórios:', error);
-    }
-}
-
-// Inicialização do Swiper
-function iniciarSwiper() {
-    new Swiper('.projects-swiper', {
-        slidesPerView: 3,
-        spaceBetween: 24,
-        loop: true,
-        observer: true,
-        observeParents: true,
-        breakpoints: {
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 }
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        autoplay: { delay: 5000 },
-        grabCursor: true,
-    });
-}
-
-// Função de Validação do Formulário
-formulario.addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    // Limpa erros anteriores
-    document.querySelectorAll('form span').forEach(span => span.innerHTML = '');
-
-    let isValid = true;
-
-    // Validação Nome
-    const nome = document.querySelector('#nome');
-    const erroNome = document.querySelector('#erro-nome');
-    if (nome.value.trim() === "") {
-        if (erroNome) erroNome.innerHTML = 'O campo Nome não pode estar em branco.';
-        if (isValid) nome.focus();
-        isValid = false;
-    } else if (nome.value.trim().length < 3) {
-        if (erroNome) erroNome.innerHTML = 'O Nome deve ter no mínimo 3 caracteres.';
-        if (isValid) nome.focus();
-        isValid = false;
-    }
-
-    // Validação E-mail
-    const email = document.querySelector('#email');
-    const erroEmail = document.querySelector('#erro-email');
-    if (!email.value.trim().match(emailRegex)) {
-        if (erroEmail) erroEmail.innerHTML = 'Digite um e-mail válido.';
-        if (isValid) email.focus();
-        isValid = false;
-    }
-
-    // Validação Assunto
-    const assunto = document.querySelector('#assunto');
-    const erroAssunto = document.querySelector('#erro-assunto');
-    if (assunto) {
-        if (assunto.value.trim() === "") {
-            if (erroAssunto) erroAssunto.innerHTML = 'O campo Assunto não pode estar em branco.';
-            if (isValid) assunto.focus();
-            isValid = false;
-        } else if (assunto.value.trim().length < 5) {
-            if (erroAssunto) erroAssunto.innerHTML = 'O Assunto deve ter no mínimo 5 caracteres.';
-            if (isValid) assunto.focus();
-            isValid = false;
-        }
-    }
-
-    // Validação Mensagem
-    const mensagem = document.querySelector('#mensagem');
-    const erroMensagem = document.querySelector('#erro-mensagem');
-    if (mensagem.value.trim() === "") {
-        if (erroMensagem) erroMensagem.innerHTML = 'A mensagem não pode ser vazia.';
-        if (isValid) mensagem.focus();
-        isValid = false;
-    }
-
-    // ENVIO FINAL
-    if (isValid) {
-        const submitButton = formulario.querySelector('button[type="submit"]');
-        submitButton.disabled = true;
-        submitButton.textContent = 'Enviando...';
+        // 3. Troca o arquivo do Currículo
+    const btnCv = document.getElementById('btn-cv');
+    if (btnCv) {
+        const novoLink = idioma === 'en' ? btnCv.getAttribute('data-en-href') : btnCv.getAttribute('data-pt-href');
+        const novoNome = idioma === 'en' ? "Lorena_Godoi_CV-en.pdf" : "Lorena_Godoi_CV-pt.pdf";
         
-        // Agora sim ele envia para o FormSubmit!
-        formulario.submit();
+        btnCv.setAttribute('href', novoLink);
+        btnCv.setAttribute('download', novoNome);
     }
+    }
+
+    // --- 0. RECUPERAR IDIOMA SALVO ---
+    let currentLang = 'pt';
+    const idiomaSalvo = localStorage.getItem('idioma_reino');
+    if (idiomaSalvo) {
+        currentLang = idiomaSalvo;
+        aplicarIdioma(currentLang);
+        
+        const btnLang = document.getElementById('btn-lang');
+        if (btnLang) {
+            btnLang.innerText = currentLang === 'pt' ? 'EN' : 'PT';
+        }
+    }
+
+    // --- 1. Menu Mobile (Toggle) ---
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (icon) {
+                if(navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        });
+    }
+
+    // --- 2. Troca de Idioma ---
+    const btnLang = document.getElementById('btn-lang');
+    if(btnLang) {
+        btnLang.addEventListener('click', () => {
+            currentLang = currentLang === 'pt' ? 'en' : 'pt';
+            btnLang.innerText = currentLang === 'pt' ? 'EN' : 'PT';
+
+            // Salva na memória do navegador
+            localStorage.setItem('idioma_reino', currentLang);
+            aplicarIdioma(currentLang);
+        });
+    }
+
+    // --- 3. Fechar menu mobile ao clicar em um link ---
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navLinks) navLinks.classList.remove('active');
+            if (menuToggle) {
+                const icon = menuToggle.querySelector('i');
+                if(icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        });
+    });
+
+    // --- 4. BUSCAR DADOS DO GITHUB ---
+    async function getAboutGithub() {
+        const container = document.getElementById('project-grid');
+        if (!container) return;
+
+        try {
+            const response = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?sort=updated`);
+            const repos = await response.json();
+            
+            container.innerHTML = ''; // Limpa o carregamento
+            const reposLimitados = repos.slice(0, 6); 
+
+            reposLimitados.forEach(repo => {
+                if (repo.fork) return;
+
+                const category = repo.language ? repo.language : 'all';
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.setAttribute('data-category', category);
+
+                card.innerHTML = `
+                    <div class="project-info">
+                        <h3 class="repo-name">${repo.name.replace(/-/g, ' ').replace(/_/g, ' ').toUpperCase()}</h3>
+                        <p>${repo.description || 'Nenhum pergaminho descritivo encontrado.'}</p>
+                        <div class="tags">
+                            <span>${repo.language || 'Code'}</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="${repo.html_url}" target="_blank">
+                                <i class="fas fa-code"></i> <span data-pt="Relatório" data-en="Report">Relatório</span>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+            
+            initFilters(); 
+
+        } catch (error) {
+            container.innerHTML = '<p>Erro ao convocar repositórios.</p>';
+        }
+    }
+
+    // --- 5. Filtro de Projetos ---
+    function initFilters() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.replaceWith(button.cloneNode(true));
+        });
+
+        const newButtons = document.querySelectorAll('.filter-btn');
+        newButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                newButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filterValue === 'all' || filterValue === category) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeIn 0.5s ease forwards';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
+
+    // --- 6. Validação e Envio do Formulário ---
+    const formulario = document.getElementById('contactForm');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(formulario) {
+        formulario.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            document.querySelectorAll('.erro-msg').forEach(span => span.innerHTML = '');
+            document.querySelectorAll('input, textarea').forEach(el => el.classList.remove('invalid'));
+
+            let isValid = true;
+
+            const name = document.querySelector('#name');
+            if (name.value.trim().length < 3) {
+                document.querySelector('#erro-name').innerHTML = currentLang === 'pt' ? 'O nome deve ter no mínimo 3 caracteres.' : 'Name must be at least 3 characters.';
+                name.classList.add('invalid');
+                if (isValid) name.focus();
+                isValid = false;
+            }
+
+            const email = document.querySelector('#email');
+            if (!email.value.trim().match(emailRegex)) {
+                document.querySelector('#erro-email').innerHTML = currentLang === 'pt' ? 'Digite um e-mail válido.' : 'Enter a valid email.';
+                email.classList.add('invalid');
+                if (isValid) email.focus();
+                isValid = false;
+            }
+
+            const subject = document.querySelector('#subject');
+            if (subject.value.trim().length < 5) {
+                document.querySelector('#erro-subject').innerHTML = currentLang === 'pt' ? 'O assunto deve ter no mínimo 5 caracteres.' : 'Subject must be at least 5 characters.';
+                subject.classList.add('invalid');
+                if (isValid) subject.focus();
+                isValid = false;
+            }
+
+            const message = document.querySelector('#message');
+            if (message.value.trim().length === 0) {
+                document.querySelector('#erro-message').innerHTML = currentLang === 'pt' ? 'A mensagem não pode ser vazia.' : 'Message cannot be empty.';
+                message.classList.add('invalid');
+                if (isValid) message.focus();
+                isValid = false;
+            }
+
+            if (isValid) {
+                const btn = formulario.querySelector('button[type="submit"]');
+                const spanElement = btn.querySelector('span'); // Pega o elemento, e não a string
+                btn.disabled = true;
+                
+                if (spanElement) {
+                    spanElement.innerText = currentLang === 'pt' ? 'Enviando corvo...' : 'Sending raven...';
+                }
+
+                formulario.submit();
+            }
+        });
+    }
+    
+    getAboutGithub();
 });
 
-// Inicia chamadas
-getAboutGithub();
-getProjectsGithub();
+// Animação dinâmica
+const style = document.createElement('style');
+style.innerHTML = `
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+    }
+`;
+document.head.appendChild(style);

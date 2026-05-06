@@ -1,126 +1,302 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Generation Brasil">
-    <meta name="description" content="Portfólio da Generation Brasil, desenvolvedora Full Stack.">
-    <meta name="robots" content="index, follow">
-
-    <!-- Fontes do Google -->
+    <title>Lorena Godoi | Full Stack Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- SWIPER CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"> 
-    <!-- Link para a Folha de Estilo local -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-   
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
-
-    <title>Portfólio - Lorena Godoi</title>
 </head>
-
+</head>
 <body>
-    <header>   
-        <div class="menu-content">
-            <a href="index.html" id="titulo">Portfólio</a>
-            <nav>
-                <ul class="menu-list">
-                    <li><a href="#hero">Início</a></li>
-                    <li><a href="#about">Sobre</a></li>
-                    <li><a href="#projects">Projetos</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <main>
-        <!-- Seção Hero -->
-        <section id="hero" class="section-container hero-container">
-            <article class="hero-content">
-                <span>👋 Olá, eu sou a Lou!</span>
-                <h1>Desenvolvedora Full Stack</h1>
-                <p>Transformo ideias em código e crio experiências digitais incríveis.</p>
-                <div class="buttons-container">
-                    <a href="#contact" class="botao">Entre em Contato</a>
-                    <a href="#about" class="botao-outline">Saiba Mais...</a>
-                </div>
-            </article>
-            <figure class="hero-image">
-                <img src="./assets/img/foto_dev_woman.svg" alt="Foto do autor" class="float-animation" width="350">
-            </figure>
-        </section>
+    <div class="custom-cursor"></div>
 
-        <!-- Seção Sobre (O conteúdo será injetado pelo JS) -->
-        <section id="about" class="section-container">
-            <!-- JS vai carregar o conteúdo aqui -->
-        </section>
+    <header id="header">
+        <div class="logo">Lou.<span>Dev</span></div>
+        <nav id="navbar">
+    <ul class="nav-links">
+        <li><a href="#home" data-pt="Início" data-en="Home">Início</a></li>
+        <li><a href="#sobre" data-pt="Sobre" data-en="About">Sobre</a></li>
+        <li><a href="#tecnologias" data-pt="Habilidades" data-en="Skills">Habilidades</a></li>
+        <li><a href="#projetos" data-pt="Projetos" data-en="Projects">Projetos</a></li>
+        <li><a href="#contato" data-pt="Contato" data-en="Contact">Contato</a></li>
+    </ul>
+</nav>
 
-        <!-- Seção Projetos -->
-        <section id="projects" class="section-container projects-container">
-            <h2>Meus Projetos</h2>
-            <div class="swiper projects-swiper">
-                <div class="swiper-wrapper">
-                   <!-- JS vai carregar os slides aqui -->
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div> 
-                <div class="swiper-pagination"></div>
+    <!-- botão de troca de idioma -->
+    <div class="header-right">
+    <div class="lang-switcher">
+        <button id="btn-lang" class="btn-lang">EN</button>
+    </div>
+    <a href="#contato" class="btn-primary" data-pt="Contrate-me" data-en="Hire Me">Contrate-me</a>
+</div>
+
+    <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+</header>
+
+      <a href="#contato" class="btn-primary" data-pt="Contrate-me" data-en="Hire Me">Contrate-me</a>
+<div class="menu-toggle"><i class="fas fa-bars"></i></div>
+</header>
+
+
+<!-- HOME -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <span class="greeting" data-pt="Saudações, viajante!" data-en="Greetings, traveler!">Saudações, viajante!</span>
+        <h1 data-pt="Sou Lorena Godoi" data-en="I'm Lorena Godoi">Sou Lorena Godoi</h1>
+        <h2 data-pt="Desenvolvedora Full Stack Junior" data-en="Junior Full Stack Developer">Desenvolvedora Full Stack Junior</h2>
+        <p data-pt="Transmutando ideias complexas em soluções Full Stack. Minha missão é purificar o código de qualquer bug e conjurar interfaces impecáveis que entregam uma jornada épica aos usuários." 
+           data-en="Transmuting complex ideas into Full Stack solutions. My mission is to purify code from any bugs and conjure flawless interfaces that deliver an epic journey to users.">
+           Transmutando ideias complexas em soluções Full Stack. Minha missão é purificar o código de qualquer bug e conjurar interfaces impecáveis que entregam uma jornada épica aos usuários.
+        </p>
+        <div class="hero-buttons">
+
+        <a href="#projetos" class="btn-primary" data-pt="Ver Relatórios" data-en="View Reports">Ver Relatórios</a>
+        <a href="./assets/docs/cv-pt.pdf" 
+            download="Lorena_Godoi_CV-pt.pdf" 
+            id="btn-cv"
+   class="btn-secondary"
+            data-pt-href="./assets/docs/Lorena_Godoi_CV-pt.pdf" 
+            data-en-href="./assets/docs/Lorena_Godoi_CV-en.pdf">
+    <i class="fa-solid fa-file-arrow-down"></i>
+    <span data-pt="Baixar Pergaminho (CV)" data-en="Download Scroll (CV)">Baixar Pergaminho (CV)</span>
+</a>
+
+
+
+</div>
+
+    </div>
+        <div class="hero-image">
+            <div class="img-wrapper floating">
+                <img src="assets/img/Lorena.png" alt="Lorena Godoi">
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Seção Contato -->
-        <section id="contact" class="section-container contact-container">
-            <article class="contact-info">
-                <h2>Entre em Contato</h2>
-                <p>Sinta-se à vontade para entrar em contato comigo!</p>
-                <div class="social-container">
-                    <a href="#" target="_blank" class="social-icon" aria-label="LinkedIn">
-                        <img src="./assets/icons/social/linkedin.svg" alt="LinkedIn">
-                    </a>
-                    <a href="#" target="_blank" class="social-icon" aria-label="GitHub">
-                        <img src="./assets/icons/social/github.svg" alt="GitHub">
-                    </a>
+    <!-- MARQUEE DINÂMICO -->
+   <div class="scrolling-banner">
+        <div class="marquee">
+            <span data-pt="Lorena Godoi ✦ Full Stack Developer ✦ Design & Code ✦ Arquitetura de Sistemas ✦ Interfaces Épicas ✦ Lorena Godoi ✦ Do Front ao Back ✦" 
+                  data-en="Lorena Godoi ✦ Full Stack Developer ✦ Design & Code ✦ System Architecture ✦ Epic Interfaces ✦ Lorena Godoi ✦ From Front to Back ✦">
+                  Lorena Godoi ✦ Full Stack Developer ✦ Design & Code ✦ Arquitetura de Sistemas ✦ Interfaces Épicas ✦ Lorena Godoi ✦ Do Front ao Back ✦
+            </span>
+            <span aria-hidden="true" data-pt="Lorena Godoi ✦ Full Stack Developer ✦ Design & Code ✦ Arquitetura de Sistemas ✦ Interfaces Épicas ✦ Lorena Godoi ✦ Do Front ao Back ✦" 
+                  data-en="Lorena Godoi ✦ Full Stack Developer ✦ Design & Code ✦ System Architecture ✦ Epic Interfaces ✦ Lorena Godoi ✦ From Front to Back ✦">
+                  Lorena Godoi ✦ Full Stack Developer ✦ Design & Code ✦ Arquitetura de Sistemas ✦ Interfaces Épicas ✦ Lorena Godoi ✦ Do Front ao Back ✦
+            </span>
+
+        </div>
+    </div>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="about">
+        <div class="section-title">
+            <h2 data-pt="Forjando a Qualidade" data-en="Forging Quality">Forjando a Qualidade</h2>
+            <p data-pt="Conheça um pouco mais sobre minha jornada." data-en="Learn a bit more about my journey.">Conheça um pouco mais sobre minha jornada.</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p data-pt="Sou Lorena Godoi Almeida, uma desenvolvedora Full Stack movida pela arte de criar e a precisão de codificar. Minha jornada começou ainda na infância, entre traços de desenhos e a curiosidade pelos computadores — uma paixão que me levou a cursar ADS na São Judas, em São Paulo. Hoje, além de desenhar as interfaces, ergo toda a estrutura por trás delas." 
+                   data-en="I am Lorena Godoi Almeida, a Full Stack developer driven by the art of creation and the precision of coding. My journey began in childhood, between drawing strokes and a curiosity for computers — a passion that led me to study Systems Analysis and Development at São Judas in São Paulo. Today, besides designing interfaces, I build the entire structure behind them.">
+                   Sou Lorena Godoi Almeida, uma desenvolvedora Full Stack movida pela arte de criar e a precisão de codificar. Minha jornada começou ainda na infância, entre traços de desenhos e a curiosidade pelos computadores — uma paixão que me levou a cursar ADS na São Judas, em São Paulo. Hoje, além de desenhar as interfaces, ergo toda a estrutura por trás delas.
+                </p>
+                <p data-pt="Acredito que um bom código é como uma fortaleza: deve ser visualmente impecável e estruturalmente indestrutível. Estou em constante evolução, empunhando novas tecnologias para transformar ideias em experiências digitais lendárias." 
+                   data-en="I believe good code is like a fortress: it must be visually flawless and structurally indestructible. I am in constant evolution, wielding new technologies to transform ideas into legendary digital experiences.">
+                   Acredito que um bom código é como uma fortaleza: deve ser visualmente impecável e estruturalmente indestrutível. Estou em constante evolução, empunhando novas tecnologias para transformar ideias em experiências digitais lendárias.
+                </p>
+                <div class="about-grid">
+                    <div class="info-item"><i class="fas fa-map-marker-alt"></i> São Paulo, BR</div>
+                    <div class="info-item"><i class="fas fa-laptop-code"></i> <span data-pt="Remoto & Híbrido" data-en="Remote & Hybrid">Remoto & Híbrido</span></div>
+                    <div class="info-item"><i class="fas fa-language"></i> <span data-pt="Inglês C2" data-en="English C2">Inglês C2</span></div>
+                    <div class="info-item"><i class="fas fa-briefcase"></i> <span data-pt="Freelance & CLT" data-en="Freelance & Full-time">Freelance & CLT</span></div>
                 </div>
-            </article>
+            </div>
+        </div>
+    </section>
 
-            <!-- Formulário de Contato -->
-          <form id="formulario" action="https://formsubmit.co/lorenagodoi.almeida@gmail.com" method="POST" novalidate>
-   
-            <input type="hidden" name="_next" value="http://localhost:5500/success.html">
-    <input type="hidden" name="_captcha" value="false">
+    <div class="divider-container">
+    <div class="mystic-line"></div>
+    <i class="fa-brands fa-fort-awesome"></i>
+    <div class="mystic-line"></div>
+</div>
 
-    <label for="nome">Nome</label>
-    <input id="nome" name="nome" type="text" placeholder="Digite seu nome completo">
-    <span id="erro-nome" class="erro"></span> <!-- ADICIONADO -->
+    <!-- FERRAMENTAS -->
+    <section id="tecnologias" class="tech">
+        <div class="section-title">
+            <h2 data-pt="Meu Arsenal" data-en="My Arsenal">Meu Arsenal</h2>
+            <p data-pt="Ferramentas e artefatos que utilizo para garantir produtos modernos e seguros." data-en="Tools and artifacts I use to forge modern and secure products.">Ferramentas e artefatos que utilizo para garantir produtos modernos e seguros.</p>
+        </div>
 
-    <label for="email">E-mail</label>
-    <input id="email" name="email" type="email" placeholder="Digite seu e-mail">
-    <span id="erro-email" class="erro"></span> <!-- ADICIONADO -->
+        <div class="tech-grid">
+            <div class="tech-card">
+             <i class="fab fa-js"></i>
+                <h3>Javascript</h3>
+            </div>
 
-    <label for="assunto">Assunto</label>
-    <input id="assunto" name="assunto" type="text" placeholder="O assunto da sua mensagem">
-    <span id="erro-assunto" class="erro"></span> <!-- ADICIONADO -->
+            <div class="tech-card">
+                <i class="devicon-typescript-plain"></i>
+                <h3>TypeScript</h3>
+            </div>
 
-    <label for="mensagem">Mensagem</label>
-    <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..."></textarea>
-    <span id="erro-mensagem" class="erro"></span> <!-- ADICIONADO -->
+            <div class="tech-card">
+              <i class="devicon-css3-plain"></i>
+                <h3>CSS3</h3>
+            </div>
 
-    <button class="botao" type="submit">Enviar Mensagem</button>
+            <div class="tech-card">
+                <i class="devicon-html5-plain"></i>
+                <h3>HTML5</h3>
+            </div>
+
+             <div class="tech-card">
+              <i class="fa-brands fa-react"></i>
+                <h3>React</h3>
+            </div>
+            
+             <div class="tech-card">
+                <i class="fa-brands fa-git-alt"></i>
+                <h3>Git</h3>
+            </div>
+
+             <div class="tech-card">
+                <i class="fa-brands fa-figma"></i>
+                <h3>Figma</h3>
+            </div>
+
+            <div class="tech-card">
+             <i class="fa-brands fa-node-js"></i>
+                <h3>Node.JS</h3>
+            </div>
+                         
+            <div class="tech-card">
+             <i class="devicon-nestjs-original"></i>
+                <h3>Nest.JS</h3>
+            </div>
+
+            <div class="tech-card">
+            <i class="devicon-mysql-original"></i>
+                <h3>MySQL</h3>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="divider-container">
+    <div class="mystic-line"></div>
+   <i class="fa-brands fa-fort-awesome"></i>
+    <div class="mystic-line"></div>
+</div>
+
+    <!-- PROJETOS -->
+    <section id="projetos" class="projects">
+    <div class="section-title">
+        <h2 data-pt="Crônicas de Testes" data-en="Testing Chronicles">Crônicas de Testes</h2>
+        <p data-pt="Uma seleção de batalhas onde atuei garantindo a qualidade do sistema." data-en="A selection of battles where I ensured the realm's system quality.">Uma seleção de batalhas onde atuei garantindo a qualidade do sistema.</p>
+    </div>
+
+    <!-- Filtros -->
+    <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all" data-pt="Mais recentes" data-en="Latest">Mais recentes</button>
+        <button class="filter-btn" data-filter="TypeScript">TypeScript</button>
+        <button class="filter-btn" data-filter="JavaScript">JavaScript</button>
+        <button class="filter-btn" data-filter="HTML">HTML</button>
+        <button class="filter-btn" data-filter="CSS">CSS</button>
+    </div>
+
+    <div id="project-grid" class="project-grid">
+        <p style="text-align: center; color: var(--gold); width: 100%;" data-pt="Convocando os corvos..." data-en="Summoning ravens...">Convocando os corvos...</p>
+    </div>
+    </section>
+
+    <div class="divider-container">
+    <div class="mystic-line"></div>
+<i class="fa-brands fa-fort-awesome"></i>
+    <div class="mystic-line"></div>
+</div>
+
+    <!-- CONTATO E EMAIL -->
+<section id="contato" class="contact">
+    <div class="section-title">
+        <h2 data-pt="Convoque meus serviços" data-en="Summon my services">Convoque meus serviços</h2>
+        <p data-pt="Disponível para alianças, projetos e caça aos bugs. Envie um corvo (ou uma mensagem)!" data-en="Available for alliances, quests, and bug hunting. Send a raven (or a message)!">Disponível para alianças, projetos e caça aos bugs. Envie um corvo (ou uma mensagem)!</p>
+    </div>
+    
+
+<form id="contactForm" action="https://formsubmit.co/lorenagodoi.almeida@gmail.com" method="POST" class="contact-form" novalidate>
+
+    <!-- Nome -->
+<div class="input-group">
+    <label for="name" data-pt="Seu Nome" data-en="Your Name">Seu Nome</label>
+    <input type="text" name="nome" id="name" placeholder="Ex: Filipe IV" data-pt-placeholder="Ex: Filipe IV" data-en-placeholder="Ex: Philip IV">
+    <span id="erro-name" class="erro-msg"></span>
+</div>
+
+<!-- email -->
+<div class="input-group">
+    <label for="email" data-pt="E-mail" data-en="E-mail">E-mail</label>
+    <input type="email" name="email" id="email" placeholder="seu.email@reino.com" data-pt-placeholder="seu.email@reino.com" data-en-placeholder="your.email@realm.com">
+    <span id="erro-email" class="erro-msg"></span>
+</div>
+
+<!-- assunto -->
+<div class="input-group">
+    <label for="subject" data-pt="Assunto" data-en="Subject">Assunto</label>
+    <input type="text" name="_subject" id="subject" placeholder="Ex: Proposta de Aliança" data-pt-placeholder="Ex: Proposta de Aliança" data-en-placeholder="Ex: Alliance Proposal">
+    <span id="erro-subject" class="erro-msg"></span>
+</div>
+
+<!-- mensagem -->
+<div class="input-group">
+    <label for="message" data-pt="Mensagem" data-en="Message">Mensagem</label>
+    <textarea name="mensagem" id="message" rows="5" placeholder="Conte-me sobre seu projeto..." data-pt-placeholder="Conte-me sobre seu projeto..." data-en-placeholder="Tell me about your project..."></textarea>
+    <span id="erro-message" class="erro-msg"></span>
+</div>
+
+<input type="hidden" name="_next" value="https://lou-godoi.github.io/portfolio/success.html">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table"> <!-- Deixa o e-mail que receber mais organizado -->
+
+
+
+<button type="submit" class="btn-primary w-100">
+    <i class="fas fa-paper-plane"></i> 
+    <span data-pt="Enviar Mensagem" data-en="Send Message">Enviar Mensagem</span>
+</button>
+
+<div id="success-message" class="success-msg hidden" data-pt="Mensagem enviada com sucesso!" data-en="Message sent successfully!">Mensagem enviada com sucesso!</div>
 </form>
-        </section>
-    </main>
+</section>
 
+ <!-- FOOTER -->
     <footer>
-        Desenvolvido por Lorena Godoi | 2026
+        <div class="footer-content">
+            <div class="logo">Lou.<span>Dev</span></div>
+            <div class="social-links">
+
+    <!-- GitHub -->
+    <a href="https://github.com/lou-godoi" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github"></i>
+    </a>
+    <!-- LinkedIn -->
+    <a href="https://linkedin.com/in/lorena-godoi-almeida" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://behance.net/lougodoi" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-behance"></i>
+    </a>
+</div>
+            </div>
+        </div>
+        <p data-pt="&copy; 2026 Lorena Godoi. Todos os direitos reservados no Reino." data-en="&copy; 2026 Lorena Godoi. All rights reserved in the Realm.">&copy; 2026 Lorena Godoi. Todos os direitos reservados no Reino.</p>
     </footer>
 
-    <!-- SWIPER JS (Deve vir antes do seu script) -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- Seu Script Local -->
-    <script src="./assets/js/script.js"></script>
+<script src="./assets/js/script.js"></script>
 </body>
 </html>

@@ -1,81 +1,107 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão Cumprida | Lorena Godoi</title>
+    
     <!-- Fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Fonte do Google - Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="author" content="Lorena Godoi">
-    <meta name="description"
-        content="Portfólio da Lorena Godoi, desenvolvedora Full Stack especializada em criar experiências digitais incríveis. Conheça meus projetos e entre em contato.">
-    <meta name="robots" content="index, follow">
-
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    
+    <!-- CSS e Favicon -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
-
-    <!-- Link para a Folha de Estilo da Página - CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-
-    <title>Portfólio Lorena Godoi</title>
-
 </head>
 
-<body>
+<body class="success-page">
 
-    <!-- Cabeçalho da Página (header) -->
-<header>
-    <div class="menu-content">
-        <a href="index.html" id="titulo">Portfólio</a>
+    <header>
+        <div class="menu-content">
+            <a href="index.html" id="titulo">Portfólio</a>
+        </div>
+    </header>
 
-        <nav>
-            <ul class="menu-list">
-                <li><a href="index.html#hero">Início</a></li>
-                <li><a href="index.html#about">Sobre</a></li>
-                <li><a href="index.html#projects">Projetos</a></li>
-                <li><a href="index.html#contact">Contato</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
-    <!-- Seção Principal da Página (main) -->
     <main>
-        
-    <!-- Mensagem de sucesso -->
+        <section class="success-container">
+            <article class="success-content" style="text-align: center; padding: 100px 20px;">
 
-    <section class="success-container">
-        <article class="success-content">
+                <figure class="success-icon">
+                    <img src="./assets/img/success.svg" 
+                         alt="Corvo Mensageiro" 
+                         class="float-animation"
+                         width="150"
+                         style="filter: sepia(1) saturate(5) hue-rotate(10deg);"> 
+                </figure>
 
-            <figure class="success-icon">
-                <img src="./assets/img/success.svg" 
-                     alt="Ilustração de sucesso" 
-                     class="float-animation"
-                     width="200">
-            </figure>
+                <h1 style="color: var(--gold); margin-top: 20px;" 
+                    data-pt="O Corvo Levantou Voo!" 
+                    data-en="The Raven Has Taken Flight!">
+                    O Corvo Levantou Voo!
+                </h1>
+                
+                <!-- Adicionado o <br> no data-en para manter a formatação igual -->
+                <h2 style="margin-bottom: 40px; font-weight: 300;" 
+                    data-pt="Sua mensagem foi entregue à cidadela. <br> Logo mais retornarei com uma resposta à altura." 
+                    data-en="Your message has reached the citadel. <br> I shall return with an answer soon.">
+                    Sua mensagem foi entregue à cidadela. <br> Logo mais retornarei com uma resposta à altura.
+                </h2>
 
-            <h1>E-mail enviado com Sucesso!</h1>
-            <h2>Obrigado por entrar em contato! <br> Logo mais retornarei sua mensagem.</h2>
+                <a class="btn-primary" href="index.html" 
+                   style="text-decoration: none; padding: 15px 30px; border: 1px solid var(--gold); color: var(--gold);"
+                   data-pt="Voltar para o Reino" 
+                   data-en="Back to the Kingdom">
+                   Voltar para o Reino
+                </a>
 
-            <a class="botao" href="index.html">Voltar para o Início</a>
+            </article>
+        </section>
+    </main>
 
-        </article>
-    </section>
-
-</main>
-
-    <!-- Rodapé da Página (footer) -->
+    <!-- FOOTER -->
     <footer>
-        Desenvolvido por Lorena Godoi | 2026
+        <div class="footer-content">
+            <div class="logo">Lou.<span>Dev</span></div>
+            <div class="social-links">
+
+    <!-- GitHub -->
+    <a href="https://github.com/lou-godoi" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github"></i>
+    </a>
+    <!-- LinkedIn -->
+    <a href="https://linkedin.com/in/lorena-godoi-almeida" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-linkedin"></i>
+    </a>
+</div>
+        </div>
+        <p data-pt="&copy; 2026 Lorena Godoi. Todos os direitos reservados no Reino." 
+           data-en="&copy; 2026 Lorena Godoi. All rights reserved in the Realm.">
+           &copy; 2026 Lorena Godoi. Todos os direitos reservados no Reino.
+        </p>
     </footer>
 
-</body>
+<script>
+    // Executa direto, sem esperar o DOMContentLoaded, pois já está no fim do body
+    const idiomaSalvo = localStorage.getItem('idioma_reino');
 
+    if (idiomaSalvo === 'en') {
+        document.title = "Mission Accomplished | Lorena Godoi";
+        document.querySelectorAll('[data-en]').forEach(el => {
+            el.innerHTML = el.getAttribute('data-en');
+        });
+    } else {
+        // Garante o fallback para PT
+        document.title = "Missão Cumprida | Lorena Godoi";
+        document.querySelectorAll('[data-pt]').forEach(el => {
+            el.innerHTML = el.getAttribute('data-pt');
+        });
+    }
+</script>
+
+</body>
 </html>
