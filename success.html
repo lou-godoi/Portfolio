@@ -83,6 +83,24 @@
             color: #0b0907;
         }
 
+       footer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #titulo {
+        font-weight: 800 !important;
+        display: flex;
+        gap: 2px;
+    }
+
+    #titulo span {
+        color: #a01a1a !important;
+        font-weight: 800;
+    }
+
         /* Mobile Adjustments */
         @media (max-width: 600px) {
             h1 { font-size: 1.5rem; }
@@ -97,7 +115,8 @@
 
     <header>
         <div class="menu-content" style="justify-content: center;">
-            <a href="index.html" id="titulo" style="font-family: 'Cinzel', serif; color: var(--gold); text-decoration: none; font-size: 1.5rem;">Lou.<span>Dev</span></a>
+            <a href="index.html" id="titulo" style="font-family: 'Cinzel', serif; color: var(--gold); text-decoration: none; font-size: 1.5rem;"><strong>Lou.<span>Dev</span></strong>
+</a>
         </div>
     </header>
 
@@ -125,7 +144,7 @@
     </main>
 
     <footer>
-        <div class="footer-content" style="padding: 10px 0;">
+        <div class="footer-content" style="padding: 10px 0; text-align: center;">
             <p data-pt="&copy; 2026 Lorena Godoi. Todos os direitos reservados no Reino." 
                data-en="&copy; 2026 Lorena Godoi. All rights reserved in the Realm.">
                 &copy; 2026 Lorena Godoi. Todos os direitos reservados no Reino.

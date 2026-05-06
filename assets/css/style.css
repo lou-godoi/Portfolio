@@ -535,6 +535,7 @@ html, body {
     width: 100%;
 }
 
+
 /* Responsividade */
 @media (max-width: 768px) {
     /* Impede o corpo de vazar */
