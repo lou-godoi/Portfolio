@@ -231,43 +231,45 @@
     <!-- Nome -->
 <div class="input-group">
     <label for="name" data-pt="Seu Nome" data-en="Your Name">Seu Nome</label>
-    <input type="text" name="nome" id="name" placeholder="Ex: Filipe IV" data-pt-placeholder="Ex: Filipe IV" data-en-placeholder="Ex: Philip IV">
+    <input type="text" name="nome" id="name" placeholder="Ex: Filipe IV" data-pt-placeholder="Ex: Filipe IV" data-en-placeholder="Ex: Philip IV" required>
     <span id="erro-name" class="erro-msg"></span>
 </div>
 
 <!-- email -->
 <div class="input-group">
     <label for="email" data-pt="E-mail" data-en="E-mail">E-mail</label>
-    <input type="email" name="email" id="email" placeholder="seu.email@reino.com" data-pt-placeholder="seu.email@reino.com" data-en-placeholder="your.email@realm.com">
+    <input type="email" name="email" id="email" placeholder="seu.email@reino.com" data-pt-placeholder="seu.email@reino.com" data-en-placeholder="your.email@realm.com" required>
     <span id="erro-email" class="erro-msg"></span>
 </div>
 
 <!-- assunto -->
 <div class="input-group">
     <label for="subject" data-pt="Assunto" data-en="Subject">Assunto</label>
-    <input type="text" name="_subject" id="subject" placeholder="Ex: Proposta de Aliança" data-pt-placeholder="Ex: Proposta de Aliança" data-en-placeholder="Ex: Alliance Proposal">
+    <input type="text" name="_subject" id="subject" placeholder="Ex: Proposta de Aliança" data-pt-placeholder="Ex: Proposta de Aliança" data-en-placeholder="Ex: Alliance Proposal" required>
     <span id="erro-subject" class="erro-msg"></span>
 </div>
 
 <!-- mensagem -->
 <div class="input-group">
     <label for="message" data-pt="Mensagem" data-en="Message">Mensagem</label>
-    <textarea name="mensagem" id="message" rows="5" placeholder="Conte-me sobre seu projeto..." data-pt-placeholder="Conte-me sobre seu projeto..." data-en-placeholder="Tell me about your project..."></textarea>
+    <textarea name="mensagem" id="message" rows="5" placeholder="Conte-me sobre seu projeto..." data-pt-placeholder="Conte-me sobre seu projeto..." data-en-placeholder="Tell me about your project..." required></textarea>
     <span id="erro-message" class="erro-msg"></span>
 </div>
 
+<!-- Configurações do FormSubmit -->
 <input type="hidden" name="_next" value="https://lou-godoi.github.io/Portfolio/success.html">
 <input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_template" value="table"> <!-- Deixa o e-mail que receber mais organizado -->
-
-
+<input type="hidden" name="_template" value="table">
 
 <button type="submit" class="btn-primary w-100">
     <i class="fas fa-paper-plane"></i> 
     <span data-pt="Enviar Mensagem" data-en="Send Message">Enviar Mensagem</span>
 </button>
 
-<div id="success-message" class="success-msg hidden" data-pt="Mensagem enviada com sucesso!" data-en="Message sent successfully!">Mensagem enviada com sucesso!</div>
+<div id="success-message" class="success-msg hidden" data-pt="Mensagem enviada com sucesso!" data-en="Message sent successfully!">
+    Mensagem enviada com sucesso!
+</div>
+
 </form>
 </section>
 
