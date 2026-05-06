@@ -12,100 +12,141 @@
     
     <!-- Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     
     <!-- CSS e Favicon -->
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+
+    <style>
+        /* Reset para garantir que a página ocupe a tela toda sem rolar */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            background-color: #0b0907;
+            overflow: hidden; /* Remove o scroll */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Faz o conteúdo principal ocupar o espaço entre header e footer e centralizar */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .success-content {
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .success-icon img {
+            width: 120px;
+            height: auto;
+            filter: sepia(1) saturate(5) hue-rotate(10deg);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold, #e2c275);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-family: 'Lora', serif;
+            color: #f5f5f5;
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Ajuste do botão para não quebrar o layout */
+        .btn-primary {
+            display: inline-block;
+            text-decoration: none;
+            padding: 12px 25px;
+            border: 1px solid var(--gold, #e2c275);
+            color: var(--gold, #e2c275);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold, #e2c275);
+            color: #0b0907;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.5rem; }
+            h2 { font-size: 1rem; }
+            .success-icon img { width: 100px; }
+            footer { font-size: 0.8rem; }
+        }
+    </style>
 </head>
 
 <body class="success-page">
 
     <header>
-        <div class="menu-content">
-            <a href="index.html" id="titulo">Portfólio</a>
+        <div class="menu-content" style="justify-content: center;">
+            <a href="index.html" id="titulo" style="font-family: 'Cinzel', serif; color: var(--gold); text-decoration: none; font-size: 1.5rem;">Lou.<span>Dev</span></a>
         </div>
     </header>
 
     <main>
         <section class="success-container">
-            <article class="success-content" style="text-align: center; padding: 100px 20px;">
-
+            <article class="success-content">
                 <figure class="success-icon">
-                    <img src="./assets/img/success.svg" 
-                         alt="Corvo Mensageiro" 
-                         class="float-animation"
-                         width="150"
-                         style="filter: sepia(1) saturate(5) hue-rotate(10deg);"> 
+                    <img src="./assets/img/success.svg" alt="Corvo Mensageiro" class="float-animation"> 
                 </figure>
 
-                <h1 style="color: var(--gold); margin-top: 20px;" 
-                    data-pt="O Corvo Levantou Voo!" 
-                    data-en="The Raven Has Taken Flight!">
+                <h1 data-pt="O Corvo Levantou Voo!" data-en="The Raven Has Taken Flight!">
                     O Corvo Levantou Voo!
                 </h1>
                 
-                <!-- Adicionado o <br> no data-en para manter a formatação igual -->
-                <h2 style="margin-bottom: 40px; font-weight: 300;" 
-                    data-pt="Sua mensagem foi entregue à cidadela. <br> Logo mais retornarei com uma resposta à altura." 
+                <h2 data-pt="Sua mensagem foi entregue à cidadela. <br> Logo mais retornarei com uma resposta à altura." 
                     data-en="Your message has reached the citadel. <br> I shall return with an answer soon.">
                     Sua mensagem foi entregue à cidadela. <br> Logo mais retornarei com uma resposta à altura.
                 </h2>
 
-                <a class="btn-primary" href="index.html" 
-                   style="text-decoration: none; padding: 15px 30px; border: 1px solid var(--gold); color: var(--gold);"
-                   data-pt="Voltar para o Reino" 
-                   data-en="Back to the Kingdom">
-                   Voltar para o Reino
+                <a class="btn-primary" href="index.html" data-pt="Voltar para o Reino" data-en="Back to the Kingdom">
+                    Voltar para o Reino
                 </a>
-
             </article>
         </section>
     </main>
 
-    <!-- FOOTER -->
     <footer>
-        <div class="footer-content">
-            <div class="logo">Lou.<span>Dev</span></div>
-            <div class="social-links">
-
-    <!-- GitHub -->
-    <a href="https://github.com/lou-godoi" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-github"></i>
-    </a>
-    <!-- LinkedIn -->
-    <a href="https://linkedin.com/in/lorena-godoi-almeida" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-linkedin"></i>
-    </a>
-     <a href="https://behance.net/lougodoi" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-behance"></i>
-    </a>
-
-</div>
+        <div class="footer-content" style="padding: 10px 0;">
+            <p data-pt="&copy; 2026 Lorena Godoi. Todos os direitos reservados no Reino." 
+               data-en="&copy; 2026 Lorena Godoi. All rights reserved in the Realm.">
+                &copy; 2026 Lorena Godoi. Todos os direitos reservados no Reino.
+            </p>
         </div>
-        <p data-pt="&copy; 2026 Lorena Godoi. Todos os direitos reservados no Reino." 
-           data-en="&copy; 2026 Lorena Godoi. All rights reserved in the Realm.">
-           &copy; 2026 Lorena Godoi. Todos os direitos reservados no Reino.
-        </p>
     </footer>
 
-<script>
-    // Executa direto, sem esperar o DOMContentLoaded, pois já está no fim do body
-    const idiomaSalvo = localStorage.getItem('idioma_reino');
+    <script>
+        const idiomaSalvo = localStorage.getItem('idioma_reino') || 'pt';
 
-    if (idiomaSalvo === 'en') {
-        document.title = "Mission Accomplished | Lorena Godoi";
-        document.querySelectorAll('[data-en]').forEach(el => {
-            el.innerHTML = el.getAttribute('data-en');
-        });
-    } else {
-        // Garante o fallback para PT
-        document.title = "Missão Cumprida | Lorena Godoi";
-        document.querySelectorAll('[data-pt]').forEach(el => {
-            el.innerHTML = el.getAttribute('data-pt');
-        });
-    }
-</script>
-
+        if (idiomaSalvo === 'en') {
+            document.title = "Mission Accomplished | Lorena Godoi";
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.innerHTML = el.getAttribute('data-en');
+            });
+        } else {
+            document.title = "Missão Cumprida | Lorena Godoi";
+            document.querySelectorAll('[data-pt]').forEach(el => {
+                el.innerHTML = el.getAttribute('data-pt');
+            });
+        }
+    </script>
 </body>
 </html>

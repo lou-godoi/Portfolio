@@ -222,14 +222,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (isValid) {
                 const btn = formulario.querySelector('button[type="submit"]');
-                const spanElement = btn.querySelector('span'); // Pega o elemento, e não a string
+                const spanElement = btn.querySelector('span');
                 btn.disabled = true;
                 
                 if (spanElement) {
                     spanElement.innerText = currentLang === 'pt' ? 'Enviando corvo...' : 'Sending raven...';
                 }
 
-                formulario.submit();
+                // Tática de guerrilha: Envia os dados por trás dos panos (Fetch API)
+                fetch(formulario.action, {
+                    method: "POST",
+                    body: new FormData(formulario),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    // Se o servidor disse OK (200), página de sucesso
+                    if (response.ok) {
+                        window.location.href = "https://lou-godoi.github.io/Portfolio/success.html";
+                    } else {
+                        // Se não, joga o erro pro catch
+                        return response.json().then(data => { throw new Error(data.message) });
+                    }
+                })
+                .catch(error => {
+                    console.error("Erro na rota do corvo:", error);
+                    window.location.href = "https://lou-godoi.github.io/Portfolio/success.html";
+                });
             }
         });
     }
