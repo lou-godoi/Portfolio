@@ -10,11 +10,11 @@
 
 <br />
 
-(O arquivo mais recente está na branch "personalização")
-
 Este **portfólio** é um **manuscrito digital vivo**, forjado com as artes do **HTML**, **CSS** e **JavaScript**. Ele atua como um arauto, proclamando minhas proezas e missões (projetos) através das terras da web.
 
 O projeto envia mensageiros à API do GitHub para buscar pergaminhos (repositórios) em tempo real, permitindo que informações como perfil e repositórios sejam carregadas automaticamente, mantendo o conteúdo sempre atualizado.
+
+(⚠️ O arquivo mais recente está na branch "personalização")
 
 ------
 
